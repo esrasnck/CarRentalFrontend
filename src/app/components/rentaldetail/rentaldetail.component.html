@@ -1,0 +1,26 @@
+<h4>KİRA</h4>
+<div *ngIf="dataLoaded==false"  class="spinner-border text-success" role="status">
+  <span class="visually-hidden"></span>
+</div>
+<table  *ngIf="dataLoaded==true" class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Marka Adı</th>
+        <th scope="col">Araba Adı</th>
+        <th scope="col">Müşteri Adı</th>
+        <th scope="col">Şirket Adı</th>
+        <th scope="col">Kira Tarihi</th>
+        <th scope="col">Kira Bitiş Tarihi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rentaldetail of rentaldetails">
+        <td>{{rentaldetail.brandName}}</td>
+        <td>{{rentaldetail.carName}}</td>
+        <td>{{rentaldetail.userName}}</td>
+        <td>{{rentaldetail.companyName}}</td>
+        <td>{{rentaldetail.rentDate}}</td>
+        <td>{{rentaldetail.returnDate}}</td>
+      </tr>
+    </tbody>
+  </table>

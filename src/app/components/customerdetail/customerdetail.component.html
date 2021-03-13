@@ -1,0 +1,18 @@
+<h4>MÜŞTERİ LİSTESİ</h4>
+<div *ngIf="dataLoaded==false"  class="spinner-border text-success" role="status">
+  <span class="visually-hidden"></span>
+</div>
+<table *ngIf="dataLoaded==true"  class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Şirket adı</th>
+        <th scope="col">Müşteri adı soyadı</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customerDetail of customerDetails">
+         <td>{{customerDetail.companyName}}</td>
+        <td>{{customerDetail.customerName}}</td>
+      </tr>
+    </tbody>
+  </table>

@@ -1,0 +1,16 @@
+<br>
+<div *ngIf="dataLoaded==false"  class="spinner-border text-success" role="status">
+  <span class="visually-hidden"></span>
+</div>
+<table  *ngIf="dataLoaded==true" class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Renk Adı</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let color of colors">
+        <td>{{color.colorName}}</td>
+      </tr>
+    </tbody>
+  </table>

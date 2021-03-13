@@ -1,0 +1,27 @@
+<h4>ARAÇ LİSTESİ</h4>
+<div *ngIf="dataLoaded==false"  class="spinner-border text-success" role="status">
+  <span class="visually-hidden"></span>
+</div>
+<table  *ngIf="dataLoaded==true" class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Araba Adı</th>
+        <th scope="col">Yılı</th>
+        <th scope="col">Marka Adı</th>
+        <th scope="col">Renk Adı</th>
+        <th scope="col">Fiyatı</th>
+        <th scope="col">Açıklama</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cardetail of cardetails">
+        <td>{{cardetail.carName}}</td>
+        <td>{{cardetail.modelYear}}</td>
+        <td>{{cardetail.brandName}}</td>
+        <td>{{cardetail.colorName}}</td>
+        <td>{{cardetail.dailyPrice}}</td>
+        <td>Açıklama çekiliyor. ama uzun... Sonra :) </td>
+      </tr>
+    </tbody>
+  </table>
+
