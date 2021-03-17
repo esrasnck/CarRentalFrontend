@@ -8,4 +8,5 @@ export interface Cardetail{
     colorName:string;
     dailyPrice:string;
     description:string;
+    
 }

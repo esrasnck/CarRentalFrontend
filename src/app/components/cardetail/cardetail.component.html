@@ -15,13 +15,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let cardetail of cardetails">
+      <tr (click)="getCarDetailByCarId(cardetail.carId)" *ngFor="let cardetail of cardetails" routerLink="/cardetails/cardetailimage/{{cardetail.carId}}">
         <td>{{cardetail.carName}}</td>
         <td>{{cardetail.modelYear}}</td>
         <td>{{cardetail.brandName}}</td>
         <td>{{cardetail.colorName}}</td>
         <td>{{cardetail.dailyPrice}}</td>
-        <td>Açıklama çekiliyor. ama uzun... Sonra :) </td>
+        <td>{{cardetail.carId}}</td>
       </tr>
     </tbody>
   </table>

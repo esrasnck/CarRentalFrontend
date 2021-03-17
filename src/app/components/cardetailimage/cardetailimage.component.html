@@ -1,0 +1,25 @@
+<div class="row image-section">
+    <div *ngFor="let image of carImage" class="col-md-4 img-gallery">
+      <img
+        [src]="getImagePath(image.imagePath)"
+        class="img-fluid"
+        [alt]="getImagePath(image.imagePath)"
+      />
+    </div>
+  </div>
+  <ul *ngIf="cardetails" class="list-group list-group-flush">
+    <li class="list-group-item">Brand Name: {{cardetails.brandName}}</li>
+    <li class="list-group-item">Color Name: {{cardetails.colorName}}</li>
+    <li class="list-group-item">Model Year: {{cardetails.modelYear}}</li>
+    <li class="list-group-item">Car Name: {{ cardetails.carName}}</li>
+    <li class="list-group-item">Daily Price: {{ cardetails.dailyPrice }}</li>
+    <li class="list-group-item">Description : {{ cardetails.description }}</li>
+  </ul>
+  <div class="btn-goback">
+    <button routerLink="/cardetails" type="button" class="btn btn-xs btn-success">
+      Go Back
+    </button>
+  </div>
+
+
+
