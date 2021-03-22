@@ -8,11 +8,12 @@ import { RentaldetailComponent } from './components/rentaldetail/rentaldetail.co
 const routes: Routes = [
   {path:"",component:CardetailComponent},
   {path:"cardetails",component:CardetailComponent},
-  {path:"cardetails/color/:colorId",component:CardetailComponent},
   {path:"cardetails/brand/:brandId",component:CardetailComponent},
+  {path:"cardetails/color/:colorId",component:CardetailComponent},
   {path:"custormerdetails",component:CustomerdetailComponent},
   {path:"rentaldetails",component:RentaldetailComponent},
-  {path:"cardetails/cardetailimage/:carId",component:CardetailimageComponent}
+  {path:"cardetails/cardetailimage/:carId",component:CardetailimageComponent},
+  {path:"cardetails/color/:colorId/brand/:brandId",component:CardetailComponent}
  
 ];
 

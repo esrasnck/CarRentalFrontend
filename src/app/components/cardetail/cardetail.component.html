@@ -1,27 +1,81 @@
-  
 <h4>ARAÇ LİSTESİ</h4>
-<div *ngIf="dataLoaded==false"  class="spinner-border text-success" role="status">
+<div>
+  <form class="d-flex md-auto">
+    <input
+      class="form-control me-2"
+      type="text"
+      placeholder="Arama ifadesi giriniz.."
+      aria-label="Organik Arama"
+      [(ngModel)]="cardetailFilter"
+      [ngModelOptions]="{ standalone: true }"
+    />
+  </form>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-5">
+    <select [(ngModel)]="brandFilter" class="form-select" aria-label="Default select example">
+      <option *ngFor="let brand of brands" [value]="brand.brandId" [selected]="getSelectedBrand(brand.brandId)">{{brand.brandName}}</option>
+    </select>
+  </div>
+  <div class="col-md-5">
+    <select  [(ngModel)]="colorFilter"  class="form-select" aria-label="Default select example">
+      <option  *ngFor="let color of colors" [value]="color.colorId" [selected]="getSelectedColor(color.colorId)" >{{color.colorName}}</option>
+    </select>
+  </div>
+  <div class="col-md-2">
+    <button
+    routerLink="/cardetails/color/{{colorFilter}}/brand/{{brandFilter}}"
+    type="button"
+    style="float: right"
+    class="btn btn-xs btn-success">
+      Filtre
+  </button>
+
+  </div>
+</div>
+<div
+  *ngIf="dataLoaded == false"
+  class="spinner-border text-success"
+  role="status"
+>
   <span class="visually-hidden"></span>
 </div>
-<table  *ngIf="dataLoaded==true" class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col">Araba Adı</th>
-        <th scope="col">Yılı</th>
-        <th scope="col">Marka Adı</th>
-        <th scope="col">Renk Adı</th>
-        <th scope="col">Fiyatı</th>
-        <th scope="col">Açıklama</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr (click)="getCarDetailByCarId(cardetail.carId)" *ngFor="let cardetail of cardetails" routerLink="/cardetails/cardetailimage/{{cardetail.carId}}">
-        <td>{{cardetail.carName}}</td>
-        <td>{{cardetail.modelYear}}</td>
-        <td>{{cardetail.brandName}}</td>
-        <td>{{cardetail.colorName}}</td>
-        <td>{{cardetail.dailyPrice}}</td>
-        <td>{{cardetail.carId}}</td>
-      </tr>
-    </tbody>
-  </table>
+<table *ngIf="dataLoaded == true" class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Araba Adı</th>
+      <th scope="col">Yılı</th>
+      <th scope="col">Marka Adı</th>
+      <th scope="col">Renk Adı</th>
+      <th scope="col">Fiyatı</th>
+      <th scope="col">Açıklama</th>
+      <th scope="">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      (click)="getCarDetailByCarId(cardetail.carId)"
+      *ngFor="let cardetail of cardetails | cardetailPipe: cardetailFilter"
+      routerLink="/cardetails/cardetailimage/{{ cardetail.carId }}"
+    >
+      <td>{{ cardetail.carName }}</td>
+      <td>{{ cardetail.modelYear }}</td>
+      <td>{{ cardetail.brandName }}</td>
+      <td>{{ cardetail.colorName }}</td>
+      <td>{{ cardetail.dailyPrice }}</td>
+      <td>{{ cardetail.carId }}</td>
+      <td>{{ cardetail.isRentable}}</td>
+    </tr>
+  </tbody>
+</table>
+<div class="btn-goback">
+  <button
+    routerLink="/cardetails"
+    type="button"
+    style="float: right"
+    class="btn btn-xs btn-success"
+  >
+    Main
+  </button>
+</div>

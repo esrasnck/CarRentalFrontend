@@ -1,9 +1,30 @@
-<br>
-<ul class="list-group">
-  <li [class]="getAllColorClass()" (click)="setAllColor()" >Renk Adı</li>
-    <li (click)="setCurrentColor(color)" 
-    routerLink="/cardetails/color/{{color.colorId}}" [class]="getCurrentColorClass(color)" *ngFor="let color of colors">{{color.colorName}}</li>
-  </ul>
 
- <h5 *ngIf="currentColor">{{currentColor.colorName}} seçtiniz </h5>
+<div class="content">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header"><label for="colorFilter" class="form-label">Renk Ara</label>
+      <input
+        type="text"
+        class="form-control"
+        id="colorFilter"
+        placeholder="Arama ifadesi giriniz.."
+        [(ngModel)]="colorFilter"
+      />
+    </div>
+    <div class="card-body">
+    <ul class="list-group">
+      <li [class]="getAllColorClass()" (click)="setAllColor()">Renk Adı</li>
+      <li
+        (click)="setCurrentColor(color)"
+        routerLink="/cardetails/color/{{ color.colorId }}"
+        [class]="getCurrentColorClass(color)"
+        *ngFor="let color of colors | colorPipe:colorFilter">
+        {{ color.colorName }}
+      </li>
+    </ul>
 
+    <h5 *ngIf="currentColor">{{ currentColor.colorName | uppercase }} seçtiniz</h5>
+  </div>
+  </div>
+  </div>
+</div>

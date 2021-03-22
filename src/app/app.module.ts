@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NaviComponent } from './components/navi/navi.component';
@@ -10,6 +12,10 @@ import { CustomerdetailComponent } from './components/customerdetail/customerdet
 import { CardetailComponent } from './components/cardetail/cardetail.component';
 import { RentaldetailComponent } from './components/rentaldetail/rentaldetail.component';
 import { CardetailimageComponent } from './components/cardetailimage/cardetailimage.component';
+import { ColorPipePipe } from './components/pipes/color-pipe.pipe';
+import { BrandPipePipe } from './components/pipes/brand-pipe.pipe';
+import { FormsModule } from '@angular/forms';
+import { CardetailPipePipe } from './components/pipes/cardetail-pipe.pipe';
 
 
 @NgModule({
@@ -21,9 +27,12 @@ import { CardetailimageComponent } from './components/cardetailimage/cardetailim
     CustomerdetailComponent,
     CardetailComponent,
     RentaldetailComponent,
-    CardetailimageComponent
+    CardetailimageComponent,
+    ColorPipePipe,
+    BrandPipePipe,
+    CardetailPipePipe
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule,FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
