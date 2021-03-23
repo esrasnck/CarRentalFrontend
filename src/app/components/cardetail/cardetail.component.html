@@ -58,6 +58,8 @@
       (click)="getCarDetailByCarId(cardetail.carId)"
       *ngFor="let cardetail of cardetails | cardetailPipe: cardetailFilter"
       routerLink="/cardetails/cardetailimage/{{ cardetail.carId }}"
+      [ngClass]="cardetail.isRentable ? 'online' : 'offline'"
+     
     >
       <td>{{ cardetail.carName }}</td>
       <td>{{ cardetail.modelYear }}</td>
@@ -65,8 +67,9 @@
       <td>{{ cardetail.colorName }}</td>
       <td>{{ cardetail.dailyPrice }}</td>
       <td>{{ cardetail.carId }}</td>
-      <td>{{ cardetail.isRentable}}</td>
+      <td>Click</td>
     </tr>
+  
   </tbody>
 </table>
 <div class="btn-goback">

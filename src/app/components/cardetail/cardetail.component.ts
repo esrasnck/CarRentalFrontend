@@ -1,5 +1,5 @@
-import { ThisReceiver } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { isNgTemplate, ThisReceiver } from '@angular/compiler';
+import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Brand } from 'src/app/models/brand';
 
@@ -10,6 +10,7 @@ import { BrandService } from 'src/app/services/brand.service';
 import { CardetailService } from 'src/app/services/cardetail.service';
 import { CarimageService } from 'src/app/services/carimage.service';
 import { ColorService } from 'src/app/services/color.service';
+import { CardetailPipePipe } from '../pipes/cardetail-pipe.pipe';
 
 @Component({
   selector: 'app-cardetail',
@@ -124,6 +125,5 @@ export class CardetailComponent implements OnInit {
     else
       return false;
   }
-
-  
+ 
 }
